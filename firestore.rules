@@ -1,0 +1,12 @@
+rules_version = '2';
+
+// Référence : à coller dans Firebase Console → Firestore Database → Rules → Publish.
+// Remplace l'email par celui utilisé dans NEXT_PUBLIC_ALLOWED_EMAIL (.env.local).
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /{document=**} {
+      allow read, write: if request.auth != null
+        && request.auth.token.email == "vidueiramathis@gmail.com";
+    }
+  }
+}
