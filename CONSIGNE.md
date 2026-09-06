@@ -43,7 +43,7 @@ Chaque source doit être **triée et documentée automatiquement** par un agent 
 | **Type** | Article / Vidéo / Post réseaux sociaux / Podcast / Autre |
 | **Pourquoi intéressant** | Résumé de l'intérêt de la source |
 | **En quoi ça t'augmente** | Apport personnel concret |
-| **Catégorie** | Métier / Pro / Perso / Culture |
+| **Catégorie** | Métier / Pro / Perso / Culture *(Décision candidat : fusionné en 3 catégories Pro / Perso / Culture, "métier" et "pro" se recoupaient trop pour être distingués de façon fiable par l'IA)* |
 
 ---
 

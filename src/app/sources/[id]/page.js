@@ -14,6 +14,8 @@ const LEGITIMITE_COLORS = {
   faible: 'bg-red-100 text-red-800',
 }
 
+const CATEGORIES = ['pro', 'culture', 'perso']
+
 export default function SourceDetailPage() {
   const { id } = useParams()
   const router = useRouter()
@@ -30,6 +32,10 @@ export default function SourceDetailPage() {
 
   async function updateTags(tags) {
     await updateDoc(doc(db, 'sources', id), { tags })
+  }
+
+  async function updateCategorie(categorie) {
+    await updateDoc(doc(db, 'sources', id), { categorie })
   }
 
   async function generateContent() {
@@ -148,8 +154,22 @@ export default function SourceDetailPage() {
             <p className="font-medium text-gray-900 mt-0.5">{source.provenance || '-'}</p>
           </div>
           <div>
-            <p className="text-gray-500">Catégorie</p>
-            <p className="font-medium text-gray-900 mt-0.5">{source.categorie || '-'}</p>
+            <p className="text-gray-500 mb-1">Catégorie</p>
+            <div className="flex gap-1.5 flex-wrap">
+              {CATEGORIES.map(c => (
+                <button
+                  key={c}
+                  onClick={() => updateCategorie(c)}
+                  className={`text-xs px-2.5 py-1 rounded-full border transition-colors ${
+                    source.categorie === c
+                      ? 'bg-blue-600 text-white border-blue-600'
+                      : 'bg-white text-gray-600 border-gray-300 hover:border-gray-400'
+                  }`}
+                >
+                  {c}
+                </button>
+              ))}
+            </div>
           </div>
           <div>
             <p className="text-gray-500">Humeur</p>

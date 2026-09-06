@@ -7,6 +7,11 @@ Source :
 - Description : ${description || 'Non disponible'}
 ${contenu ? `- Extrait du contenu : ${contenu.slice(0, 800)}` : ''}
 
+Le veilleur est développeur web / chef de projet digital. Pour la catégorie, utilise ces définitions strictement, en te basant sur le sujet réel de la source, pas sur son ton ou sa forme (un article people ou sportif bien écrit reste "culture", pas "pro") :
+- "pro" : tout ce qui touche au numérique professionnel, compétence technique de dev, gestion de projet, entreprises tech, marché du travail IT, stratégie digitale
+- "perso" : développement personnel, vie quotidienne, sujets utiles à soi hors travail (santé, finance perso, organisation)
+- "culture" : divertissement, sport, musique, cinéma, actualité générale sans lien avec le numérique ou le travail
+
 Retourne UNIQUEMENT un JSON valide avec ces champs :
 {
   "titre": "titre de la source, clair et concis",
@@ -15,7 +20,7 @@ Retourne UNIQUEMENT un JSON valide avec ces champs :
   "legitimite": "haute | moyenne | faible",
   "interet": "pourquoi cette source est intéressante (2-3 phrases max)",
   "apportPersonnel": "en quoi cette source augmente les compétences du veilleur (1-2 phrases)",
-  "categorie": "métier | pro | perso | culture",
+  "categorie": "pro | perso | culture",
   "tags": ["tag1", "tag2", "tag3"],
   "humeur": "positif | neutre | négatif"
 }
