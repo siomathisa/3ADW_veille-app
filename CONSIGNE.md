@@ -22,17 +22,17 @@ Une web app de veille articulée en **4 temps** : capter → qualifier → range
 ### 1. CAPTER — Ingestion de sources
 
 L'app doit permettre d'**envoyer des sources directement dedans** via :
-- Un formulaire (coller une URL)
-- Un bot ou tout autre mécanisme justifié
+- Un formulaire (coller une URL) *(Fait ✅)*
+- Un bot ou tout autre mécanisme justifié *(non fait, pas obligatoire vu le "ou")*
 
 **Fonctionnalités attendues :**
-- Capture d'URLs (articles, vidéos, posts réseaux sociaux)
-- Cartographie des sources entrantes (liste / tableau de bord)
-- Les sources doivent être visibles et navigables dans l'interface
+- Capture d'URLs (articles, vidéos, posts réseaux sociaux) *(Fait ✅)*
+- Cartographie des sources entrantes (liste / tableau de bord) *(Fait ✅)*
+- Les sources doivent être visibles et navigables dans l'interface *(Fait ✅)*
 
 ---
 
-### 2. QUALIFIER — Analyse automatique par l'IA
+### 2. QUALIFIER — Analyse automatique par l'IA *(Fait ✅)*
 
 Chaque source doit être **triée et documentée automatiquement** par un agent IA avec les champs suivants :
 
@@ -55,15 +55,15 @@ Source → Article → Tags
 ```
 
 **Règles :**
-- Un agent IA décide automatiquement du classement dans le bon dossier
-- Les dossiers/catégories sont définis en amont
-- **Une source peut avoir plusieurs tags** (ex : un article sur Claude Code = IA + automatisation + dev)
-- L'utilisateur peut **ajouter ou corriger des tags manuellement** si l'IA ne les a pas détectés
-- Le système doit être **scalable** : pouvoir ajouter de nouvelles catégories et tags facilement
+- Un agent IA décide automatiquement du classement dans le bon dossier *(Fait ✅)*
+- Les dossiers/catégories sont définis en amont *(Fait ✅)*
+- **Une source peut avoir plusieurs tags** (ex : un article sur Claude Code = IA + automatisation + dev) *(Fait ✅)*
+- L'utilisateur peut **ajouter ou corriger des tags manuellement** si l'IA ne les a pas détectés *(Fait ✅)*
+- Le système doit être **scalable** : pouvoir ajouter de nouvelles catégories et tags facilement *(Fait ✅ : les catégories affichées dans les filtres sont désormais dérivées dynamiquement des sources existantes, plus de liste figée dans le code)*
 
 ---
 
-### 4. REPUBLIER AVEC VALEUR AJOUTÉE — Point évalué, non négociable
+### 4. REPUBLIER AVEC VALEUR AJOUTÉE — Point évalué, non négociable *(Fait ✅)*
 
 > C'est le cœur de l'évaluation. Recevoir → Digérer → Restituer avec valeur ajoutée.
 
@@ -76,19 +76,19 @@ L'app doit permettre de **générer du contenu à partir des sources** :
 - **Posture marque/entreprise** : faire du social media rapidement
 
 **Formes possibles de republication :**
-- Post LinkedIn généré automatiquement
-- Article / thread réseaux sociaux
-- Résumé commenté avec angle personnel
-- Retranscription et optimisation d'un commentaire audio
+- Post LinkedIn généré automatiquement *(Fait ✅)*
+- Article / thread réseaux sociaux *(non fait, une seule forme suffit)*
+- Résumé commenté avec angle personnel *(non fait, une seule forme suffit)*
+- Retranscription et optimisation d'un commentaire audio *(non fait, une seule forme suffit)*
 
-**Règle de style absolue pour tout le contenu généré :**
+**Règle de style absolue pour tout le contenu généré :** *(Fait ✅)*
 Ne jamais utiliser de tirets longs (—) dans les textes produits par l'IA. C'est le marqueur le plus visible d'un texte généré automatiquement. Utiliser à la place des virgules, des points-virgules ou des tirets courts (-). Le ton doit sonner naturel et humain, pas corporate. Cette règle doit être intégrée dans tous les prompts envoyés à Claude.
 
 ---
 
 ## ⭐ Bonus (pour aller plus loin)
 
-### Agent "Pertinence"
+### Agent "Pertinence" *(Fait ✅ : bouton "Analyser la pertinence" branché sur la page détail d'une source)*
 Un agent qui va **collecter les commentaires et réactions** autour d'une source (sur les réseaux, dans les commentaires d'un article) pour déterminer :
 - L'article est-il bien ou mal perçu ?
 - Quels sont les arguments pour / contre ?
@@ -96,12 +96,12 @@ Un agent qui va **collecter les commentaires et réactions** autour d'une source
 
 > Cela permet d'affiner la pertinence globale de l'app et de gagner du temps dans l'analyse.
 
-### Capture dictaphone terrain
+### Capture dictaphone terrain *(Abandonné, décision du candidat : nécessiterait un service de transcription tiers, effort jugé disproportionné par rapport à la valeur pour ce projet)*
 - Enregistrement vocal à la volée (en réunion, à VivaTech, en dîner...)
 - Retranscription automatique en texte
 - Transformation en pense-bête ou brouillon d'article
 
-### Agents / Skills SEO
+### Agents / Skills SEO *(Fait ✅ : bouton "Optimiser SEO" sur le contenu généré, titre SEO/meta description/mots-clés générés par IA)*
 - Optimisation du contenu republié pour le référencement naturel
 - Agents spécialisés avec footprint SEO
 - Structure et ton optimisés pour la visibilité
@@ -135,13 +135,13 @@ Un agent qui va **collecter les commentaires et réactions** autour d'une source
 
 ## 🏗️ Stack technique recommandée
 
-| Outil | Usage |
-|---|---|
-| **Next.js** | Framework frontend + backend (API routes) |
-| **Firebase / Firestore** | Base de données + Auth |
-| **API Anthropic (Claude Sonnet)** | Agent de qualification + génération de contenu |
-| **Vercel** | Hébergement (branché sur GitHub) |
-| **GitHub** | Versioning + déploiement automatique |
+| Outil | Usage | État |
+|---|---|---|
+| **Next.js** | Framework frontend + backend (API routes) | Fait ✅ |
+| **Firebase / Firestore** | Base de données + Auth | Fait ✅ |
+| **API Anthropic (Claude Sonnet)** | Agent de qualification + génération de contenu | Fait ✅ *(Haiku pour la qualification, Sonnet pour la génération, pour optimiser le coût)* |
+| **Vercel** | Hébergement (branché sur GitHub) | Fait ✅ |
+| **GitHub** | Versioning + déploiement automatique | Fait ✅ |
 
 ---
 
@@ -168,15 +168,15 @@ L'évaluation est alignée sur les **blocs de compétences** :
 Recevoir → Digérer → Restituer à valeur ajoutée
 ```
 
-| Critère | Poids |
-|---|---|
-| Capture et ingestion de sources | Obligatoire |
-| Qualification automatique par l'IA | Obligatoire |
-| Classement Source → Article → Tags + édition manuelle | Obligatoire |
-| **Republication avec valeur ajoutée** | **Point clé évalué** |
-| Agent pertinence | Bonus |
-| Dictaphone terrain | Bonus |
-| SEO | Bonus |
+| Critère | Poids | État |
+|---|---|---|
+| Capture et ingestion de sources | Obligatoire | Fait ✅ |
+| Qualification automatique par l'IA | Obligatoire | Fait ✅ |
+| Classement Source → Article → Tags + édition manuelle | Obligatoire | Fait ✅ |
+| **Republication avec valeur ajoutée** | **Point clé évalué** | Fait ✅ |
+| Agent pertinence | Bonus | Fait ✅ |
+| Dictaphone terrain | Bonus | Abandonné |
+| SEO | Bonus | Fait ✅ |
 
 > **Passage en septembre.**
 
@@ -184,30 +184,30 @@ Recevoir → Digérer → Restituer à valeur ajoutée
 
 ## 🗓️ Planning suggéré (avant coaching du 15 juin)
 
-| Jours | Objectif |
-|---|---|
-| Jour 1-2 | Init Next.js + Firebase + formulaire de capture |
-| Jour 3-4 | Agent IA de qualification (API Anthropic) |
-| Jour 5-6 | Génération de contenu (republication) |
-| Jour 7 | Édition manuelle des tags + déploiement Vercel |
+| Jours | Objectif | État |
+|---|---|---|
+| Jour 1-2 | Init Next.js + Firebase + formulaire de capture | Fait ✅ |
+| Jour 3-4 | Agent IA de qualification (API Anthropic) | Fait ✅ |
+| Jour 5-6 | Génération de contenu (republication) | Fait ✅ |
+| Jour 7 | Édition manuelle des tags + déploiement Vercel | Fait ✅ |
 
 ---
 
 ## 💡 Ce que le prof veut voir au coaching du 15 juin
 
 Une app qui tourne vraiment, avec au minimum :
-- ✅ Pouvoir coller une URL et la voir sauvegardée
-- ✅ La source qualifiée automatiquement par l'IA (type, légitimité, tags...)
-- ✅ Un bouton pour générer un post/contenu à partir de la source
-- ✅ L'app déployée et accessible en ligne (Vercel)
+- ✅ Pouvoir coller une URL et la voir sauvegardée *(Fait ✅)*
+- ✅ La source qualifiée automatiquement par l'IA (type, légitimité, tags...) *(Fait ✅)*
+- ✅ Un bouton pour générer un post/contenu à partir de la source *(Fait ✅)*
+- ✅ L'app déployée et accessible en ligne (Vercel) *(Fait ✅)*
 
 ---
 
 ---
 
-## 🔑 Ce que TU dois faire manuellement (Claude Code ne peut pas le faire)
+## 🔑 Ce que TU dois faire manuellement (Claude Code ne peut pas le faire) *(Tout est Fait ✅)*
 
-### 1. Firebase
+### 1. Firebase *(Fait ✅)*
 1. Va sur [console.firebase.google.com](https://console.firebase.google.com)
 2. "Créer un projet" → nom : `veille-app`
 3. Désactive Google Analytics (inutile)
@@ -215,23 +215,23 @@ Une app qui tourne vraiment, avec au minimum :
 5. Clique sur l'icône **`</>`** (Web) → enregistre l'app → récupère le bloc `firebaseConfig`
 6. Garde ce bloc de côté, il ira dans `.env.local`
 
-### 2. API Anthropic
+### 2. API Anthropic *(Fait ✅)*
 1. Va sur [console.anthropic.com](https://console.anthropic.com)
 2. Crée un compte si pas déjà fait
 3. Ajoute **5€** de crédits (largement suffisant)
 4. Génère une **clé API** → garde-la de côté
 
-### 3. GitHub
+### 3. GitHub *(Fait ✅ — repo `3ADW_veille-app`)*
 1. Crée un repo sur [github.com](https://github.com) → nom : `veille-app` → **privé**
 2. Clone-le en local ou laisse Claude Code init le projet dedans
 
-### 4. Vercel (à faire quand l'app tourne en local)
+### 4. Vercel (à faire quand l'app tourne en local) *(Fait ✅)*
 1. Va sur [vercel.com](https://vercel.com) → connecte ton GitHub
 2. "Import project" → sélectionne `veille-app`
 3. Ajoute les variables d'environnement (les mêmes que `.env.local`)
 4. Deploy → c'est en ligne
 
-### 5. Fichier `.env.local` (à créer à la racine du projet)
+### 5. Fichier `.env.local` (à créer à la racine du projet) *(Fait ✅ — comporte aussi les identifiants Firebase Admin et l'email autorisé, en plus de ce qui est listé ci-dessous)*
 ```bash
 # Firebase
 NEXT_PUBLIC_FIREBASE_API_KEY=xxx

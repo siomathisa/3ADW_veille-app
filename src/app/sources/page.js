@@ -5,13 +5,14 @@ import Link from 'next/link'
 import { useSources } from '@/hooks/useSources'
 import SourceCard from '@/components/SourceCard'
 
-const CATEGORIES = ['toutes', 'métier', 'pro', 'perso', 'culture']
 const STATUTS = ['tous', 'à-traiter', 'traité', 'publié']
 
 export default function SourcesPage() {
   const { sources, loading } = useSources()
   const [categorie, setCategorie] = useState('toutes')
   const [statut, setStatut] = useState('tous')
+
+  const categories = ['toutes', ...Array.from(new Set(sources.map(s => s.categorie).filter(Boolean))).sort()]
 
   const filtered = sources.filter(s => {
     if (categorie !== 'toutes' && s.categorie !== categorie) return false
@@ -21,7 +22,7 @@ export default function SourcesPage() {
 
   return (
     <div>
-      <div className="flex items-center justify-between mb-6">
+      <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
         <h1 className="text-2xl font-bold text-gray-900">
           Sources {!loading && `(${sources.length})`}
         </h1>
@@ -34,7 +35,7 @@ export default function SourcesPage() {
       </div>
 
       <div className="flex gap-2 mb-6 flex-wrap items-center">
-        {CATEGORIES.map(c => (
+        {categories.map(c => (
           <button
             key={c}
             onClick={() => setCategorie(c)}

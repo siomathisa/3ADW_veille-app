@@ -17,7 +17,7 @@ export default function Dashboard() {
 
   return (
     <div>
-      <div className="flex items-center justify-between mb-8">
+      <div className="flex flex-wrap items-center justify-between gap-4 mb-8">
         <div>
           <h1 className="text-2xl font-bold text-gray-900">Dashboard</h1>
           <p className="text-gray-500 text-sm mt-1">Votre base de veille intelligente</p>
@@ -30,7 +30,7 @@ export default function Dashboard() {
         </Link>
       </div>
 
-      <div className="grid grid-cols-3 gap-4 mb-8">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
         <div className="bg-white border border-gray-200 rounded-xl p-5">
           <p className="text-sm text-gray-500 mb-1">Sources totales</p>
           <p className="text-3xl font-bold text-gray-900">{stats.total}</p>

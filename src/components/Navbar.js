@@ -7,6 +7,7 @@ import { useAuth } from '@/context/AuthContext'
 const links = [
   { href: '/', label: 'Dashboard' },
   { href: '/sources', label: 'Sources' },
+  { href: '/recherche', label: 'Recherche' },
   { href: '/ajouter', label: '+ Ajouter' },
   { href: '/publier', label: 'Publier' },
 ]
@@ -16,11 +17,11 @@ export default function Navbar() {
   const { logout } = useAuth()
 
   return (
-    <nav className="bg-gray-900 text-white px-6 py-4 flex items-center justify-between">
+    <nav className="bg-gray-900 text-white px-4 sm:px-6 py-4 flex flex-wrap items-center justify-between gap-3">
       <Link href="/" className="font-bold text-lg tracking-tight text-white">
         Veille IA
       </Link>
-      <div className="flex items-center gap-6">
+      <div className="flex flex-wrap items-center gap-3 sm:gap-6">
         {links.map(link => (
           <Link
             key={link.href}

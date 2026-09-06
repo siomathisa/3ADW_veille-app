@@ -17,7 +17,7 @@ export default function SourceCard({ source }) {
   return (
     <Link href={`/sources/${source.id}`}>
       <div className="bg-white border border-gray-200 rounded-xl p-4 hover:border-blue-300 hover:shadow-sm transition-all cursor-pointer">
-        <div className="flex items-start justify-between gap-3 mb-2">
+        <div className="flex items-start justify-between gap-3 mb-2 flex-wrap">
           <h3 className="font-medium text-gray-900 text-sm leading-snug line-clamp-2">
             {source.titre || source.url}
           </h3>

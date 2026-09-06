@@ -54,6 +54,74 @@ Règles absolues :
 - Retourne uniquement le post, prêt à copier-coller`
 }
 
+export function rechercheSynthesePrompt({ question, sources }) {
+  const contexte = sources.map((s, i) => `Source ${i + 1} :
+- Titre : ${s.titre}
+- URL : ${s.url}
+- Catégorie : ${s.categorie}
+- Tags : ${(s.tags || []).join(', ')}
+- Pourquoi intéressant : ${s.interet}
+- Apport personnel : ${s.apportPersonnel}`).join('\n\n')
+
+  return `Tu es l'assistant de recherche d'une base de veille personnelle. Réponds à la question de l'utilisateur UNIQUEMENT à partir des sources fournies ci-dessous, qui viennent de sa propre base de veille.
+
+Question : ${question}
+
+Sources disponibles :
+${contexte}
+
+Consignes :
+- Réponds directement à la question en t'appuyant sur les sources pertinentes
+- Cite les sources utilisées par leur titre
+- Si aucune source ne permet de répondre correctement, dis-le clairement plutôt que d'inventer
+- N'utilise jamais de tirets longs (—), remplace par des virgules ou des tirets courts (-)
+- Ton direct et naturel, 3-6 phrases maximum`
+}
+
+export function veilleWebPrompt({ sujet }) {
+  return `Tu es un agent de veille technologique. Cherche sur le web des sources récentes et fiables sur le sujet suivant : "${sujet}".
+
+Utilise l'outil de recherche web pour trouver 3 à 5 articles ou pages pertinentes, récentes et provenant de sources reconnues.
+
+Une fois la recherche terminée, retourne UNIQUEMENT un JSON (tableau), sans texte avant ou après, avec ce format :
+[
+  {
+    "titre": "titre de l'article",
+    "url": "URL exacte trouvée par la recherche",
+    "provenance": "nom du site",
+    "resume": "résumé en 1-2 phrases de pourquoi c'est pertinent pour la veille"
+  }
+]
+
+Règles :
+- Uniquement des URLs réellement trouvées via l'outil de recherche, jamais inventées
+- Pas de tirets longs (—), utilise des virgules ou des tirets courts (-)
+- Sois concis et factuel`
+}
+
+export function seoPrompt({ source }) {
+  return `Tu es un expert SEO qui optimise du contenu pour le référencement naturel, sans dénaturer le fond.
+
+Source :
+- Titre original : ${source.titre}
+- Sujet : ${source.interet}
+- Tags : ${(source.tags || []).join(', ')}
+- Contenu déjà rédigé : ${source.contenuGenere || 'aucun'}
+
+Retourne UNIQUEMENT un JSON avec ce format :
+{
+  "titreSeo": "titre optimisé SEO, 60 caractères max, avec le mot-clé principal en avant",
+  "metaDescription": "description de 150-160 caractères qui donne envie de cliquer",
+  "motsCles": ["mot-clé principal", "mot-clé secondaire 1", "mot-clé secondaire 2"],
+  "suggestionStructure": "1-2 phrases sur comment structurer le contenu pour le référencement (titres, longueur, liens internes...)"
+}
+
+Règles :
+- Pas de tirets longs (—), utilise des virgules ou des tirets courts (-)
+- Reste factuel, pas de bourrage de mots-clés
+- Retourne uniquement le JSON`
+}
+
 export function pertinencePrompt({ source }) {
   return `Analyse la perception et l'humeur générale autour de cette source.
 

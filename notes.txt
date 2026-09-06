@@ -1,1 +1,3 @@
 - aperçu linkedin
+- design
+- Faire une agent IA, capable de rechercher pour faire de la veille technologique, stocker les informations ( trouver comment faire un petit RAG ou stockage ) et ressortir les données
