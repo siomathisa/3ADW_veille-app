@@ -4,6 +4,14 @@ import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { auth } from '@/lib/firebase'
 
+async function parseJsonSafe(res) {
+  try {
+    return await res.json()
+  } catch {
+    throw new Error('Le serveur a mis trop de temps à répondre, réessaie.')
+  }
+}
+
 export default function RecherchePage() {
   const [question, setQuestion] = useState('')
   const [searching, setSearching] = useState(false)
@@ -31,7 +39,7 @@ export default function RecherchePage() {
         headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
         body: JSON.stringify({ question: question.trim() }),
       })
-      const data = await res.json()
+      const data = await parseJsonSafe(res)
       if (!res.ok) throw new Error(data.error || 'Erreur lors de la recherche')
       setRagResult(data)
     } catch (err) {
@@ -54,7 +62,7 @@ export default function RecherchePage() {
         headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
         body: JSON.stringify({ sujet: sujet.trim() }),
       })
-      const data = await res.json()
+      const data = await parseJsonSafe(res)
       if (!res.ok) throw new Error(data.error || 'Erreur lors de la recherche web')
       setWebResults(data.resultats || [])
     } catch (err) {
@@ -74,7 +82,7 @@ export default function RecherchePage() {
         headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
         body: JSON.stringify({ url }),
       })
-      const data = await res.json()
+      const data = await parseJsonSafe(res)
       if (!res.ok) throw new Error(data.error || "Erreur lors de l'ajout")
       router.push(`/sources/${data.id}`)
     } catch (err) {

@@ -3,6 +3,8 @@ import { requireAuth } from '@/lib/requireAuth'
 import anthropic from '@/lib/anthropic'
 import { veilleWebPrompt } from '@/lib/prompts'
 
+export const maxDuration = 60
+
 export async function POST(request) {
   try {
     const user = await requireAuth(request)
