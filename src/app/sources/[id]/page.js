@@ -186,7 +186,7 @@ export default function SourceDetailPage() {
 
         {source.apportPersonnel && (
           <div className="mb-5">
-            <p className="text-sm text-gray-500 mb-1">En quoi ca t'augmente</p>
+            <p className="text-sm text-gray-500 mb-1">Apport personnel</p>
             <p className="text-sm text-gray-800 leading-relaxed">{source.apportPersonnel}</p>
           </div>
         )}

@@ -80,7 +80,7 @@ export default function SourceForm() {
 
       {loading && (
         <p className="text-xs text-gray-500 text-center">
-          L'IA analyse et classe automatiquement votre source (10-20 secondes)
+          L'IA analyse et classe automatiquement ta source (10-20 secondes)
         </p>
       )}
     </form>

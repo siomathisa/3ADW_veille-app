@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { useSources } from '@/hooks/useSources'
 import SourceCard from '@/components/SourceCard'
 
-const STATUTS = ['tous', 'à-traiter', 'traité', 'publié']
+const STATUTS = ['tous', 'à traiter', 'traité', 'publié']
 
 export default function SourcesPage() {
   const { sources, loading } = useSources()

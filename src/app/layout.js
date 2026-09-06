@@ -7,7 +7,7 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
   title: 'Veille IA',
-  description: 'Votre second cerveau pour la veille intelligente',
+  description: 'Ton second cerveau pour la veille intelligente',
 }
 
 export default function RootLayout({ children }) {

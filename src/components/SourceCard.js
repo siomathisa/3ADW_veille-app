@@ -8,7 +8,7 @@ const LEGITIMITE_COLORS = {
 }
 
 const STATUT_COLORS = {
-  'à-traiter': 'bg-gray-100 text-gray-600',
+  'à traiter': 'bg-gray-100 text-gray-600',
   traité: 'bg-blue-100 text-blue-700',
   publié: 'bg-green-100 text-green-700',
 }
@@ -21,8 +21,8 @@ export default function SourceCard({ source }) {
           <h3 className="font-medium text-gray-900 text-sm leading-snug line-clamp-2">
             {source.titre || source.url}
           </h3>
-          <span className={`shrink-0 text-xs px-2 py-0.5 rounded-full font-medium ${STATUT_COLORS[source.statut] || STATUT_COLORS['à-traiter']}`}>
-            {source.statut || 'à-traiter'}
+          <span className={`shrink-0 text-xs px-2 py-0.5 rounded-full font-medium ${STATUT_COLORS[source.statut] || STATUT_COLORS['à traiter']}`}>
+            {source.statut || 'à traiter'}
           </span>
         </div>
 

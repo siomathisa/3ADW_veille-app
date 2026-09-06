@@ -27,7 +27,7 @@ export default function Dashboard() {
       <div className="flex flex-wrap items-center justify-between gap-4 mb-8">
         <div>
           <h1 className="text-2xl font-bold text-gray-900">Dashboard</h1>
-          <p className="text-gray-500 text-sm mt-1">Votre base de veille intelligente</p>
+          <p className="text-gray-500 text-sm mt-1">Ta base de veille intelligente</p>
         </div>
         <Link
           href="/ajouter"
@@ -81,7 +81,7 @@ export default function Dashboard() {
           <div className="text-center py-12 bg-white border border-dashed border-gray-300 rounded-xl">
             <p className="text-gray-500 mb-4">Aucune source pour l'instant</p>
             <Link href="/ajouter" className="text-blue-600 text-sm font-medium hover:underline">
-              Ajouter votre première source
+              Ajouter ta première source
             </Link>
           </div>
         ) : (
